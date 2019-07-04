@@ -14,12 +14,16 @@ BOT_NAME = 'patent'
 SPIDER_MODULES = ['patent.spiders']
 NEWSPIDER_MODULE = 'patent.spiders'
 
+# Customized
+LOG_LEVEL = 'INFO'
+COOKIES_DEBUG = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'patent (+http://www.yourdomain.com)'
+# USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,9 +68,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'patent.pipelines.PatentPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'patent.pipelines.PatentPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
