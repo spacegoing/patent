@@ -1,0 +1,2 @@
+** Docker
+~docker run --name patmg -v /home/lchang/pallabCodeLab/patent/volume:/data -p 27017:27017 -itd mongo~
