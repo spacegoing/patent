@@ -92,7 +92,7 @@ class PatentPipeline(object):
             'citationList': citation_list
         })
         parse_dict_date(i)
-      except e:
+      except Exception as e:
         except_dict = get_except_yield_dict(e, i)
         error_col.insert_one(except_dict)
 
