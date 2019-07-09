@@ -5,6 +5,7 @@ import dateparser as dp
 from urllib import parse
 import xlrd
 import pandas as pd
+import traceback
 
 DEBUG = False
 
@@ -130,6 +131,7 @@ class PatentSpider(scrapy.Spider):
         priority=20)
 
     # following pagination pages
+    self.logger.info('Total Pages: %d' % total_pages)
     for i in range(2, total_pages + 1):
       form_data = {
           'dbs': 'FMZL,SYXX,WGZL,FMSQ',
@@ -152,59 +154,96 @@ class PatentSpider(scrapy.Spider):
   def parse_search_form_json(self, response):
     # from scrapy.shell import inspect_response
     # inspect_response(response, self)
-    json_returned = json.loads(response.text)
-    result_list = json_returned['results']
-    pid_list = [i['pid'] for i in result_list]
-    pid_str = ','.join(pid_list)
-    field_str = '申请号,申请日,公开（公告）号,公开（公告）日,申请（专利权）人,发明（设计）人,分类号,优先权,专利代理机构,代理人,国际申请,国际公布,进入国家日期,摘要,地址,名称,专利同族,专利引证,最新法律状态,法律状态,专利权状态'
-    form_data = {'bibFields': field_str, 'selectedPatentList': pid_str}
+    db_handler = ''
+    yield_dict = {'error': False, 'db_handler': db_handler}
 
-    form_str_list = [
-        i.strip()
-        for i in response.request.body.decode('utf-8').split('&')
-        if 'from' in i
-    ]
-    from_index = int(form_str_list[0][5:])
-    self.logger.info('Scraping page: %d' % from_index)
-    meta_dict = {'query_result_list': result_list, 'from_index': from_index}
-    yield scrapy.FormRequest(
-        url=
-        'http://zjip.patsev.com/pldb-zj/access/hostingplatform/search/patent/json/download/bib',
-        formdata=form_data,
-        callback=self.xls_query,
-        dont_filter=True,
-        meta=meta_dict,
-        priority=30)
+    try:
+      json_returned = json.loads(response.text)
+      result_list = json_returned['results']
+      pid_list = [i['pid'] for i in result_list]
+      pid_str = ','.join(pid_list)
+      field_str = '申请号,申请日,公开（公告）号,公开（公告）日,申请（专利权）人,发明（设计）人,分类号,优先权,专利代理机构,代理人,国际申请,国际公布,进入国家日期,摘要,地址,名称,专利同族,专利引证,最新法律状态,法律状态,专利权状态'
+      form_data = {'bibFields': field_str, 'selectedPatentList': pid_str}
+
+      form_str_list = [
+          i.strip()
+          for i in response.request.body.decode('utf-8').split('&')
+          if 'from' in i
+      ]
+      from_index = int(form_str_list[0][5:])
+      self.logger.info('Scraping page: %d' % from_index)
+      meta_dict = {'query_result_list': result_list, 'from_index': from_index}
+      yield scrapy.FormRequest(
+          url=
+          'http://zjip.patsev.com/pldb-zj/access/hostingplatform/search/patent/json/download/bib',
+          formdata=form_data,
+          callback=self.xls_query,
+          dont_filter=True,
+          meta=meta_dict,
+          priority=30)
+
+      yield_dict['meta_dict'] = {'from_index': from_index}
+      yield_dict['db_handler'] = 'insert_scrapped_page_index'
+      yield yield_dict
+    except Exception as e:
+      yield_dict['from_index_request_headers'] = response.request.body.decode(
+          'utf-8')
+      yield_dict = self.get_except_yield_dict(e, yield_dict, response)
+      yield yield_dict
 
   def xls_query(self, response):
     # from scrapy.shell import inspect_response
     # inspect_response(response, self)
-    url = json.loads(response.text)['fileName']
-    url = 'http://zjip.patsev.com/pldb-zj/fileTemp/' + url
-    yield scrapy.Request(
-        url,
-        callback=self.xls_parser,
-        meta=self.get_meta(response),
-        priority=40)
+    db_handler = ''
+    yield_dict = {
+        'error': False,
+        'db_handler': db_handler,
+        'meta_dict': self.get_meta(response)
+    }
+    try:
+      url = json.loads(response.text)['fileName']
+      url = 'http://zjip.patsev.com/pldb-zj/fileTemp/' + url
+      yield scrapy.Request(
+          url,
+          callback=self.xls_parser,
+          meta=self.get_meta(response),
+          priority=40)
+    except Exception as e:
+      yield_dict = self.get_except_yield_dict(e, yield_dict, response)
+      yield yield_dict
 
   def xls_parser(self, response):
     # from scrapy.shell import inspect_response
     # inspect_response(response, self)
-    book = xlrd.open_workbook(
-        file_contents=response.body, encoding_override='gb2312')
-    df = pd.read_excel(book)
-    indices = [2, 10, 11, 12, 16]
-    # key_names = ['公开（公告）号', '国际申请', '国际公布', '进入国家日期', '专利同族']
-    key_maps = ['pubNumber', 'iapp', 'ipub', 'den', 'family']
-    tdf = df.iloc[:, indices]
-    tdf.columns = key_maps
-    for d, td in zip(
-        response.meta['query_result_list'], tdf.to_dict(orient='record')):
-      if d['pubNumber'] != td['pubNumber']:
-        raise Exception(
-            'Downloaded Excel and Weblist items are in different order')
-      d.update(td)
-    yield {'query_result_list': response.meta['query_result_list']}
+    db_handler = 'insert_result_list'
+    yield_dict = {
+        'error': False,
+        'db_handler': db_handler,
+        'meta_dict': self.get_meta(response)
+    }
+
+    try:
+      book = xlrd.open_workbook(
+          file_contents=response.body, encoding_override='gb2312')
+      df = pd.read_excel(book)
+      indices = [2, 10, 11, 12, 16]
+      # key_names = ['公开（公告）号', '国际申请', '国际公布', '进入国家日期', '专利同族']
+      key_maps = ['pubNumber', 'iapp', 'ipub', 'den', 'family']
+      tdf = df.iloc[:, indices]
+      tdf.columns = key_maps
+      for d, td in zip(
+          response.meta['query_result_list'], tdf.to_dict(orient='record')):
+        if d['pubNumber'] != td['pubNumber']:
+          raise Exception(
+              'Downloaded Excel and Weblist items are in different order')
+        d.update(td)
+      yield_dict['meta_dict'] = {
+          'query_result_list': response.meta['query_result_list']
+      }
+      yield yield_dict
+    except Exception as e:
+      yield_dict = self.get_except_yield_dict(e, yield_dict, response)
+      yield yield_dict
 
   def get_meta(self, response):
     meta = {
@@ -213,3 +252,12 @@ class PatentSpider(scrapy.Spider):
         if k not in self.scrapy_meta_keys
     }
     return meta
+
+  def get_except_yield_dict(self, e, yield_dict, response):
+    yield_dict['error'] = {
+        'error_message': '%s: %s' % (e.__class__, str(e)),
+        'traceback': traceback.format_exc(),
+        'url': response.url
+    }
+    yield_dict['db_handler'] = 'error_insert'
+    return yield_dict
