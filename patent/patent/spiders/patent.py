@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
 import json
 import scrapy
 import dateparser as dp
 from urllib import parse
-import math
 import xlrd
 import pandas as pd
 
@@ -120,14 +118,15 @@ class PatentSpider(scrapy.Spider):
     pid_str = ','.join(pid_list)
     field_str = '申请号,申请日,公开（公告）号,公开（公告）日,申请（专利权）人,发明（设计）人,分类号,优先权,专利代理机构,代理人,国际申请,国际公布,进入国家日期,摘要,地址,名称,专利同族,专利引证,最新法律状态,法律状态,专利权状态'
     form_data = {'bibFields': field_str, 'selectedPatentList': pid_str}
-    response.meta['query_result_list'] = result_list
+
+    meta_dict = {'query_result_list': result_list, 'from_index': 1}
     yield scrapy.FormRequest(
         url=
         'http://zjip.patsev.com/pldb-zj/access/hostingplatform/search/patent/json/download/bib',
         formdata=form_data,
         callback=self.xls_query,
         dont_filter=True,
-        meta=response.meta,
+        meta=meta_dict,
         priority=20)
 
     # following pagination pages
@@ -142,7 +141,6 @@ class PatentSpider(scrapy.Spider):
           'order': '',
           'size': str(self.no_per_page)
       }
-      self.logger.info('start scraping page: %d' % i)
       yield scrapy.FormRequest(
           url=
           'http://zjip.patsev.com/pldb-zj/access/hostingplatform/search/patent/json/load-patent-overview',
@@ -160,14 +158,22 @@ class PatentSpider(scrapy.Spider):
     pid_str = ','.join(pid_list)
     field_str = '申请号,申请日,公开（公告）号,公开（公告）日,申请（专利权）人,发明（设计）人,分类号,优先权,专利代理机构,代理人,国际申请,国际公布,进入国家日期,摘要,地址,名称,专利同族,专利引证,最新法律状态,法律状态,专利权状态'
     form_data = {'bibFields': field_str, 'selectedPatentList': pid_str}
-    response.meta['query_result_list'] = result_list
+
+    form_str_list = [
+        i.strip()
+        for i in response.request.body.decode('utf-8').split('&')
+        if 'from' in i
+    ]
+    from_index = int(form_str_list[0][5:])
+    self.logger.info('Scraping page: %d' % from_index)
+    meta_dict = {'query_result_list': result_list, 'from_index': from_index}
     yield scrapy.FormRequest(
         url=
         'http://zjip.patsev.com/pldb-zj/access/hostingplatform/search/patent/json/download/bib',
         formdata=form_data,
         callback=self.xls_query,
         dont_filter=True,
-        meta=response.meta,
+        meta=meta_dict,
         priority=30)
 
   def xls_query(self, response):
@@ -176,7 +182,10 @@ class PatentSpider(scrapy.Spider):
     url = json.loads(response.text)['fileName']
     url = 'http://zjip.patsev.com/pldb-zj/fileTemp/' + url
     yield scrapy.Request(
-        url, callback=self.xls_parser, meta=response.meta, priority=40)
+        url,
+        callback=self.xls_parser,
+        meta=self.get_meta(response),
+        priority=40)
 
   def xls_parser(self, response):
     # from scrapy.shell import inspect_response
@@ -196,3 +205,11 @@ class PatentSpider(scrapy.Spider):
             'Downloaded Excel and Weblist items are in different order')
       d.update(td)
     yield {'query_result_list': response.meta['query_result_list']}
+
+  def get_meta(self, response):
+    meta = {
+        k: v
+        for k, v in response.meta.items()
+        if k not in self.scrapy_meta_keys
+    }
+    return meta

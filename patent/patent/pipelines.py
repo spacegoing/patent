@@ -93,6 +93,7 @@ class PatentPipeline(object):
         })
         parse_dict_date(i)
       except Exception as e:
+        import ipdb; ipdb.set_trace(context=7)
         except_dict = get_except_yield_dict(e, i)
         error_col.insert_one(except_dict)
 
