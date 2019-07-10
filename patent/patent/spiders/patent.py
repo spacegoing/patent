@@ -212,6 +212,7 @@ class PatentSpider(scrapy.Spider):
           url,
           callback=self.xls_parser,
           meta=self.get_meta(response),
+          dont_filter=True,
           priority=40)
     except Exception as e:
       yield_dict = self.get_except_yield_dict(e, yield_dict, response)
