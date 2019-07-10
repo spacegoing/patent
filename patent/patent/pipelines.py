@@ -12,6 +12,42 @@ client = MongoClient('mongodb://localhost:27017/')
 patent_db = client['patent_db']
 patent_col = patent_db['patent_col']
 error_col = patent_db['error']
+index_col = patent_db['index']
+
+
+def insert_result_list(result, meta_dict):
+  for i in result['query_result_list']:
+    try:
+      patent_type = parse_type(int(i['patType']), i['dbName'])
+      legal_status = parse_status(int(i['statusCode']))
+      citation_list = parse_citation_list(i['citationInfo'])
+      i.update({
+          'patentType': patent_type,
+          'legalStatus': legal_status,
+          'citationList': citation_list
+      })
+      parse_dict_date(i)
+    except Exception as e:
+      import ipdb
+      ipdb.set_trace(context=7)
+      except_dict = get_except_yield_dict(e, i)
+      error_col.insert_one(except_dict)
+
+  patent_col.insert_many(result['query_result_list'])
+
+
+def insert_scrapped_page_index(result, meta_dict):
+  index_col.insert_one(meta_dict)
+
+
+def error_insert(item):
+  error_col.insert_one(item)
+
+
+db_handler_dict = {
+    'insert_result_list': insert_result_list,
+    'insert_scrapped_page_index': insert_scrapped_page_index
+}
 
 
 def parse_type(patType, dbName):
@@ -81,21 +117,11 @@ def get_except_yield_dict(e, i):
 class PatentPipeline(object):
 
   def process_item(self, item, spider):
-    for i in item['query_result_list']:
-      try:
-        patent_type = parse_type(int(i['patType']), i['dbName'])
-        legal_status = parse_status(int(i['statusCode']))
-        citation_list = parse_citation_list(i['citationInfo'])
-        i.update({
-            'patentType': patent_type,
-            'legalStatus': legal_status,
-            'citationList': citation_list
-        })
-        parse_dict_date(i)
-      except Exception as e:
-        import ipdb; ipdb.set_trace(context=7)
-        except_dict = get_except_yield_dict(e, i)
-        error_col.insert_one(except_dict)
-
-    patent_col.insert_many(item['query_result_list'])
+    # item is yield_dict
+    meta = item['meta_dict']
+    if item['error']:
+      error_insert(item)
+    else:
+      db_handler_str = item['db_handler']
+      db_handler_dict[db_handler_str](item['result'], meta)
     return item

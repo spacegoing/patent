@@ -155,7 +155,11 @@ class PatentSpider(scrapy.Spider):
     # from scrapy.shell import inspect_response
     # inspect_response(response, self)
     db_handler = ''
-    yield_dict = {'error': False, 'db_handler': db_handler}
+    yield_dict = {
+        'error': False,
+        'db_handler': db_handler,
+        'meta_dict': self.get_meta(response)
+    }
 
     try:
       json_returned = json.loads(response.text)
@@ -182,8 +186,9 @@ class PatentSpider(scrapy.Spider):
           meta=meta_dict,
           priority=30)
 
-      yield_dict['meta_dict'] = {'from_index': from_index}
+      yield_dict['result'] = {'from_index': from_index}
       yield_dict['db_handler'] = 'insert_scrapped_page_index'
+      yield_dict['meta_dict'] = meta_dict
       yield yield_dict
     except Exception as e:
       yield_dict['from_index_request_headers'] = response.request.body.decode(
@@ -237,7 +242,7 @@ class PatentSpider(scrapy.Spider):
           raise Exception(
               'Downloaded Excel and Weblist items are in different order')
         d.update(td)
-      yield_dict['meta_dict'] = {
+      yield_dict['result'] = {
           'query_result_list': response.meta['query_result_list']
       }
       yield yield_dict
