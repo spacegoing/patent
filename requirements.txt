@@ -1,2 +1,3 @@
 dateparser
 pymongo
+fake_useragent

@@ -19,6 +19,22 @@ LOG_LEVEL = 'INFO'
 LOG_FILE = 'patent.log'
 JOBDIR = 'cache'
 COOKIES_DEBUG = True
+DOWNLOAD_TIMEOUT = 100
+
+# For ip pool settings
+# Retry many times since proxies often fail
+RETRY_TIMES = 10
+# Retry on most error codes since proxies fail for different reasons
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+
+FAKEUSERAGENT_FALLBACK = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'  # RandomUserAgentMiddleware setting
+
+DOWNLOADER_MIDDLEWARES = {
+    'patent.middlewares.RandomUserAgentMiddleware': 100,
+    'patent.middlewares.RandomProxy': 110,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 120,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 130
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'patent (+http://www.yourdomain.com)'

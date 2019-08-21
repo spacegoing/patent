@@ -1,2 +1,12 @@
 ** Docker
 ~docker run --name patmg -v /home/lchang/pallabCodeLab/patent/volume:/data -p 27017:27017 -itd mongo~
+~docker run --name mg -v /Users/spacegoing/macCodeLab-MBP2015/MQD/tmp_docker_volume:/data -p 27017:27017 -itd mongo~
+
+
+** Running Commands:
+
+*** IP Proxy
+
+- update api url: http://http.taiyangruanjian.com/getapi/ in
+  ./patent/ip_update.py
+- python ./patent/ip_update.py

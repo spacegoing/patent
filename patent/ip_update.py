@@ -17,10 +17,12 @@ def insert_proxy(proxy_list):
 
 def get_ip_list(num):
   '''
+  proxy website: http://http.taiyangruanjian.com/ucenter/
   required by tiqu.qingjuhe.cn, the num should less than 500
   '''
 
-  tmp_url = 'http://http.tiqu.qingjuhe.cn/getip?num=%d&type=2&pack=34807&port=11&ts=1&lb=1&pb=45&regions='
+  # change format string: param num=10 to num=%d
+  tmp_url = 'http://d.jghttp.golangapi.com/getip?num=%d&type=2&pro=0&city=0&yys=0&port=1&time=1&ts=1&ys=0&cs=0&lb=1&sb=0&pb=45&mr=1&regions='
   url = (tmp_url % (num))
 
   def get_ip(url):
@@ -84,7 +86,7 @@ def update_ip_list():
 
 
 if __name__ == "__main__":
-  insert_proxy(get_ip_list(20))
+  insert_proxy(get_ip_list(5))
   time.sleep(2)
   while True:
     update_ip_list()
