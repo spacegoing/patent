@@ -2,8 +2,6 @@
 import requests
 from pymongo import MongoClient
 import random
-# chrome cookie
-# chrome://settings/siteData?search=cookie
 
 client = MongoClient('mongodb://localhost:27017/')
 proxy_db = client['Patent_Proxy']
@@ -14,9 +12,6 @@ proxy_col = proxy_db['Proxy']
 # http://h.jiguangdaili.com/api/new_api.html
 # jghttp335911
 url = 'http://zjip.patsev.com/'
-# url = 'http://httpbin.org/ip'
-url = 'http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin'
-
 headers = {
     'Accept':
         'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -37,15 +32,17 @@ headers = {
     'Purpose':
         'prefetch'
 }
-
 ip_port_dict = random.choice(list(proxy_col.find()))
 proxy_dict = {
     'http': 'http://%s:%d' % (ip_port_dict['ip'], ip_port_dict['port'])
 }
-
 res = requests.get(url, proxies=proxy_dict, headers=headers)
-# res = requests.get(url, headers=headers)
+res_hist_dict = {'http://zjip.patsev.com/': ['1', res], '': ''}
 print(res.text[:100])
-
+# res = requests.get(url, headers=headers)
+# chrome cookie
+# chrome://settings/siteData?search=cookie
+# proxy url
+# http://h.jiguangdaili.com/api/new_api.html
 with open('test.html', 'w') as f:
   f.writelines(res.text)
