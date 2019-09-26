@@ -159,7 +159,7 @@ class RandomProxy(object):
     request.meta["exception"] = False
     proxy_address = random.choice(list(proxy_col.find()))
     request.meta[
-        'proxy'] = 'http://' + proxy_address['ip'] + ':' + str(proxy_address['port'])
+        'proxy'] = 'http://' + proxy_address['ip'] + ':' + proxy_address['port']
 
   def process_response(self, request, response, spider):
     # Called with the response returned from the downloader.

@@ -8,10 +8,12 @@ proxy_db = client['Patent_Proxy']
 proxy_col = proxy_db['Proxy']
 # proxy_col.drop()
 
+# chrome cookie
+# chrome://settings/siteData?search=cookie
+
 # proxy url
 # http://h.jiguangdaili.com/api/new_api.html
 # jghttp335911
-url = 'http://zjip.patsev.com/'
 headers = {
     'Accept':
         'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -21,10 +23,11 @@ headers = {
         'zh-CN,zh;q=0.9',
     'Connection':
         'keep-alive',
-    'Host':
-        'zjip.patsev.com',
-    'Referer':
-        'http://zjip.patsev.com/pldb-zj/',
+    # removed because it confuses requests redirect mechanism
+    # 'Host':
+    #     'zjip.patsev.com',
+    # 'Referer':
+    #     'http://zjip.patsev.com/pldb-zj/',
     'Upgrade-Insecure-Requests':
         '1',
     'User-Agent':
@@ -32,17 +35,38 @@ headers = {
     'Purpose':
         'prefetch'
 }
-ip_port_dict = random.choice(list(proxy_col.find()))
-proxy_dict = {
-    'http': 'http://%s:%d' % (ip_port_dict['ip'], ip_port_dict['port'])
-}
-res = requests.get(url, proxies=proxy_dict, headers=headers)
-res_hist_dict = {'http://zjip.patsev.com/': ['1', res], '': ''}
-print(res.text[:100])
-# res = requests.get(url, headers=headers)
-# chrome cookie
-# chrome://settings/siteData?search=cookie
-# proxy url
-# http://h.jiguangdaili.com/api/new_api.html
-with open('test.html', 'w') as f:
-  f.writelines(res.text)
+
+res_hist_dict = dict()
+sess = requests.Session()
+
+
+def make_query(url, name, red=True, proxy=True):
+  ip_port_dict = random.choice(list(proxy_col.find()))
+  proxy_dict = {
+      'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
+  }
+  if proxy:
+    res = sess.get(
+        url, proxies=proxy_dict, headers=headers, allow_redirects=red)
+  else:
+    res = sess.get(url, headers=headers, allow_redirects=red)
+  res_hist_dict[url] = [name, res]
+  print(res.text[:100])
+  with open(name + '.html', 'w') as f:
+    f.writelines(res.text)
+  return res
+
+
+url = 'http://zjip.patsev.com/'
+name = '1'
+res = make_query(url, name)
+
+url = 'http://zjip.patsev.com/pldb-zj/' + 'access/toLogin'
+name = '2'
+res = make_query(url, name, red=False)
+
+url = res.headers['Location']
+name = '3'
+# res = make_query(url, name, red=False, proxy=False)
+res = make_query(url, name, red=False)
+

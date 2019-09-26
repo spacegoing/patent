@@ -13,9 +13,9 @@ proxy_col = proxy_db['Proxy']
 # proxy url
 # http://h.jiguangdaili.com/api/new_api.html
 # jghttp335911
-url = 'http://zjip.patsev.com/'
-# url = 'http://httpbin.org/ip'
-url = 'http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin'
+# url = 'http://zjip.patsev.com/'
+url = 'http://httpbin.org/ip'
+# url = 'http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin'
 
 headers = {
     'Accept':
@@ -40,7 +40,7 @@ headers = {
 
 ip_port_dict = random.choice(list(proxy_col.find()))
 proxy_dict = {
-    'http': 'http://%s:%d' % (ip_port_dict['ip'], ip_port_dict['port'])
+    'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
 }
 
 res = requests.get(url, proxies=proxy_dict, headers=headers)
