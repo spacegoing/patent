@@ -28,22 +28,23 @@ headers = {
         'gzip, deflate',
     'Accept-Language':
         'zh-CN,zh;q=0.9',
-    'Connection':
-        'keep-alive',
+    # 'Connection':
+    #     'keep-alive',
     # removed because it confuses requests redirect mechanism
     # 'Host':
     #     'zjip.patsev.com',
     # 'Referer':
     #     'http://zjip.patsev.com/pldb-zj/',
-    'Upgrade-Insecure-Requests':
-        '1',
+    # 'Upgrade-Insecure-Requests':
+    #     '1',
     'User-Agent':
         agent,
-    'Purpose':
-        'prefetch'
+    # 'Purpose':
+    #     'prefetch'
 }
 
 sess = requests.Session()
+sess.headers.update(headers)
 
 
 def make_query(url, name, red=True, proxy=True):
@@ -52,13 +53,11 @@ def make_query(url, name, red=True, proxy=True):
       'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
   }
   if proxy:
-    res = sess.get(
-        url, proxies=proxy_dict, headers=headers, allow_redirects=red)
+    res = sess.get(url, proxies=proxy_dict, allow_redirects=red)
   else:
-    res = sess.get(url, headers=headers, allow_redirects=red)
+    res = sess.get(url, allow_redirects=red)
   if debug:
     res_hist_dict[url] = [name, res]
-    print(res.text[:100])
     with open(name + '.html', 'w') as f:
       f.writelines(res.text)
   return res
@@ -76,4 +75,3 @@ url = res.headers['Location']
 name = '3'
 # res = make_query(url, name, red=False, proxy=False)
 res = make_query(url, name, red=False)
-
