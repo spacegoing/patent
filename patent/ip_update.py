@@ -28,9 +28,9 @@ def get_ip_list(num):
   # tmp_url = 'http://http.tiqu.qingjuhe.cn/getip?num=%d&type=2&pack=38500&port=1&ts=1&lb=1&pb=45&regions='
   # zhimaruanjian http://h.zhimaruanjian.com/getapi/
   # socks5
-  # tmp_url = 'http://webapi.http.zhimacangku.com/getip?num=%d&type=2&pro=0&city=0&yys=0&port=2&time=1&ts=1&ys=0&cs=0&lb=1&sb=0&pb=45&mr=1&regions='
+  tmp_url = 'http://webapi.http.zhimacangku.com/getip?num=%d&type=2&pro=0&city=0&yys=0&port=2&time=1&ts=1&ys=0&cs=0&lb=1&sb=0&pb=45&mr=1&regions='
   # https
-  tmp_url = 'http://webapi.http.zhimacangku.com/getip?num=%d&type=2&pro=0&city=0&yys=0&port=11&time=1&ts=1&ys=0&cs=0&lb=1&sb=0&pb=45&mr=1&regions='
+  # tmp_url = 'http://webapi.http.zhimacangku.com/getip?num=%d&type=2&pro=0&city=0&yys=0&port=11&time=1&ts=1&ys=0&cs=0&lb=1&sb=0&pb=45&mr=1&regions='
   url = (tmp_url % (num))
 
   def get_ip(url):
