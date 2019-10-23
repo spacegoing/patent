@@ -168,8 +168,8 @@ class RandomProxy(object):
     # - return a Response object
     # - return a Request object
     # - or raise IgnoreRequest
-    import ipdb
-    ipdb.set_trace(context=7)
+    # import ipdb
+    # ipdb.set_trace(context=7)
     return response
 
   def process_exception(self, request, exception, spider):

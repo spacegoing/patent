@@ -15,15 +15,16 @@ SPIDER_MODULES = ['patent.spiders']
 NEWSPIDER_MODULE = 'patent.spiders'
 
 # Customized
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 LOG_FILE = 'patent.log'
 JOBDIR = 'cache'
 COOKIES_DEBUG = True
 DOWNLOAD_TIMEOUT = 100
+REDIRECT_MAX_TIMES = 20
 
 # For ip pool settings
 # Retry many times since proxies often fail
-RETRY_TIMES = 10
+RETRY_TIMES = 5
 # Retry on most error codes since proxies fail for different reasons
 RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 
