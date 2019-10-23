@@ -64,6 +64,41 @@ def make_query(url, name, red=True, proxy=True):
   return res
 
 
+def login(cnipr_res, proxy=True):
+  client_id = parse.parse_qs(parse.urlsplit(
+      cnipr_res.url).query)['client_id'][0]
+  form_data = {
+      'userName': 'spacebnbk',
+      'password': 'QWertyuio123',
+      'clientId': client_id,
+      'responseType': 'code',
+      'redirectUri': 'http://zjip.patsev.com/pldb-zj/access/oauthLogin',
+      'state': ''
+  }
+  ip_port_dict = random.choice(list(proxy_col.find()))
+  proxy_dict = {
+      'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
+  }
+  if proxy:
+    res = sess.post(
+        'http://open.cnipr.com/oauth/json/authorize',
+        proxies=proxy_dict,
+        headers=headers,
+        data=form_data)
+  else:
+    res = sess.post(
+        'http://open.cnipr.com/oauth/json/authorize',
+        data=form_data,
+        headers=headers)
+  if debug:
+    res_hist_dict['login'] = ['login', res]
+    print(res.text[:100])
+    with open('login' + '.html', 'w') as f:
+      f.writelines(res.text)
+  url = res.json()['message']
+  return url
+
+
 url = 'http://zjip.patsev.com/'
 name = '1'
 res = make_query(url, name)
@@ -75,5 +110,6 @@ res = make_query(url, name, red=False)
 url = res.headers['Location']
 name = '3'
 # res = make_query(url, name, red=False, proxy=False)
-res = make_query(url, name, red=False)
+cnipr_res = make_query(url, name, red=False)
 
+logined_url = login(cnipr_res)
