@@ -2,6 +2,12 @@
 import requests
 from pymongo import MongoClient
 import random
+from urllib import parse
+from shadow_useragent import ShadowUserAgent as ua
+
+debug = True
+if debug:
+  res_hist_dict = dict()
 
 client = MongoClient('mongodb://localhost:27017/')
 proxy_db = client['Patent_Proxy']
@@ -14,6 +20,7 @@ proxy_col = proxy_db['Proxy']
 # proxy url
 # http://h.jiguangdaili.com/api/new_api.html
 # jghttp335911
+agent = ua().random
 headers = {
     'Accept':
         'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -31,12 +38,11 @@ headers = {
     'Upgrade-Insecure-Requests':
         '1',
     'User-Agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+        agent,
     'Purpose':
         'prefetch'
 }
 
-res_hist_dict = dict()
 sess = requests.Session()
 
 
@@ -50,10 +56,11 @@ def make_query(url, name, red=True, proxy=True):
         url, proxies=proxy_dict, headers=headers, allow_redirects=red)
   else:
     res = sess.get(url, headers=headers, allow_redirects=red)
-  res_hist_dict[url] = [name, res]
-  print(res.text[:100])
-  with open(name + '.html', 'w') as f:
-    f.writelines(res.text)
+  if debug:
+    res_hist_dict[url] = [name, res]
+    print(res.text[:100])
+    with open(name + '.html', 'w') as f:
+      f.writelines(res.text)
   return res
 
 
