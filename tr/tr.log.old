@@ -1,0 +1,548 @@
+2019-09-25 17:27:01 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 17:27:01 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 17:27:01 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 17:27:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 17:27:01 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 17:27:01 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 17:27:01 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 17:27:01 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 17:27:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:27:01 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 17:27:01 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://zjip.patsev.com/pldb-zj/> from <GET http://zjip.patsev.com/>
+2019-09-25 17:27:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://zjip.patsev.com/pldb-zj/access/toLogin> from <GET http://zjip.patsev.com/pldb-zj/>
+2019-09-25 17:27:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+2019-09-25 17:27:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:04 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:05 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 17:27:06 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:06 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:07 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 17:27:07 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:07 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:08 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 17:27:09 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 17:27:09 [scrapy.crawler] INFO: Received SIG_UNBLOCK, shutting down gracefully. Send again to force 
+2019-09-25 17:27:09 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-09-25 17:27:09 [scrapy.crawler] INFO: Received SIG_UNBLOCK twice, forcing unclean shutdown
+2019-09-25 17:33:52 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 17:33:52 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 17:33:52 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 17:33:52 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 17:33:52 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 17:33:52 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 17:33:52 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 17:33:52 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 17:33:52 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:33:52 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 17:35:37 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://zjip.patsev.com/pldb-zj/> from <GET http://zjip.patsev.com/>
+2019-09-25 17:35:37 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:36:00 [parso.cache] DEBUG: pickle loaded: /Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/http/response/html.py
+2019-09-25 17:36:25 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://zjip.patsev.com/pldb-zj/access/toLogin> from <GET http://zjip.patsev.com/pldb-zj/>
+2019-09-25 17:36:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: diff parser start
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: diff parser calculated
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: diff: line_lengths old: 1, new: 1
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: diff replace old[1:1] new[1:1]
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: parse_part from 1 to 1 (to 0 in part parser)
+2019-09-25 17:37:39 [parso.python.diff] DEBUG: diff parser end
+2019-09-25 17:41:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:41:32 [scrapy.core.scraper] ERROR: Error downloading <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <302 http://zjip.patsev.com/pldb-zj/access/toLogin>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 53, in process_response
+    spider=spider)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 81, in process_response
+    req = self._redirect(redirected, request, spider, response.status)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 81, in process_response
+    req = self._redirect(redirected, request, spider, response.status)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 51, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 70, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+2019-09-25 17:41:32 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-09-25 17:41:32 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1469,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 943,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/302': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 9, 25, 7, 41, 32, 566664),
+ 'log_count/DEBUG': 10,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 126402560,
+ 'memusage/startup': 95924224,
+ 'scheduler/dequeued': 3,
+ 'scheduler/dequeued/memory': 3,
+ 'scheduler/enqueued': 3,
+ 'scheduler/enqueued/memory': 3,
+ 'start_time': datetime.datetime(2019, 9, 25, 7, 33, 52, 251580)}
+2019-09-25 17:41:32 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-09-25 17:41:37 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 17:41:38 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 17:41:38 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 17:41:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 17:41:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 17:41:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 17:41:38 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 17:41:38 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 17:41:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:41:38 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 17:41:48 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://zjip.patsev.com/pldb-zj/> from <GET http://zjip.patsev.com/>
+2019-09-25 17:42:04 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://zjip.patsev.com/pldb-zj/access/toLogin> from <GET http://zjip.patsev.com/pldb-zj/>
+2019-09-25 17:42:29 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+2019-09-25 17:43:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:43:59 [scrapy.core.scraper] ERROR: Error downloading <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <302 http://zjip.patsev.com/pldb-zj/access/toLogin>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 53, in process_response
+    spider=spider)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 82, in process_response
+    return req
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 82, in process_response
+    return req
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 51, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 70, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+2019-09-25 17:43:59 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-09-25 17:43:59 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1469,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 943,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/302': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 9, 25, 7, 43, 59, 946552),
+ 'log_count/DEBUG': 4,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 8,
+ 'memusage/max': 125145088,
+ 'memusage/startup': 95891456,
+ 'scheduler/dequeued': 3,
+ 'scheduler/dequeued/memory': 3,
+ 'scheduler/enqueued': 3,
+ 'scheduler/enqueued/memory': 3,
+ 'start_time': datetime.datetime(2019, 9, 25, 7, 41, 38, 109393)}
+2019-09-25 17:43:59 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-09-25 17:44:21 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 17:44:21 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 17:44:21 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 17:44:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 17:44:21 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 17:44:21 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 17:44:21 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 17:44:21 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 17:44:21 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:44:21 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 17:44:28 [scrapy.core.scraper] ERROR: Error downloading <GET http://zjip.patsev.com/>
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <302 http://zjip.patsev.com/>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 53, in process_response
+    spider=spider)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 81, in process_response
+    req = self._redirect(redirected, request, spider, response.status)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 81, in process_response
+    req = self._redirect(redirected, request, spider, response.status)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 51, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 70, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+2019-09-25 17:44:28 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-09-25 17:44:28 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 443,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 124,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/302': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 9, 25, 7, 44, 28, 450458),
+ 'log_count/DEBUG': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'memusage/max': 95911936,
+ 'memusage/startup': 95911936,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2019, 9, 25, 7, 44, 21, 495757)}
+2019-09-25 17:44:28 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-09-25 17:44:38 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 17:44:38 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 17:44:38 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 17:44:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 17:44:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 17:44:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 17:44:38 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 17:44:38 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 17:44:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 17:44:38 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 17:44:39 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://zjip.patsev.com/pldb-zj/> from <GET http://zjip.patsev.com/>
+2019-09-25 17:44:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://zjip.patsev.com/pldb-zj/access/toLogin> from <GET http://zjip.patsev.com/pldb-zj/>
+2019-09-25 17:44:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+2019-09-25 18:11:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 18:11:01 [scrapy.core.scraper] ERROR: Error downloading <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <302 http://zjip.patsev.com/pldb-zj/access/toLogin>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 53, in process_response
+    spider=spider)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 82, in process_response
+    return req
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/downloadermiddlewares/redirect.py", line 82, in process_response
+    return req
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 51, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/Users/spacegoing/anaconda3/lib/python3.6/bdb.py", line 70, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+2019-09-25 18:11:01 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-09-25 18:11:01 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1412,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 943,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/302': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 9, 25, 8, 11, 1, 682447),
+ 'log_count/DEBUG': 4,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 8,
+ 'memusage/max': 124776448,
+ 'memusage/startup': 96002048,
+ 'scheduler/dequeued': 3,
+ 'scheduler/dequeued/memory': 3,
+ 'scheduler/enqueued': 3,
+ 'scheduler/enqueued/memory': 3,
+ 'start_time': datetime.datetime(2019, 9, 25, 7, 44, 38, 527627)}
+2019-09-25 18:11:01 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-09-25 18:12:33 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 18:12:33 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 18:12:33 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 18:12:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 18:12:33 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 18:12:33 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 18:12:33 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 18:12:33 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 18:12:33 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 18:12:33 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 18:12:33 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/Users/spacegoing/anaconda3/lib/python3.6/site-packages/scrapy/core/engine.py", line 127, in _next_request
+    request = next(slot.start_requests)
+  File "/Users/spacegoing/macCodeLab-MBP2015/MQD/Patent/tr/tr/spiders/tr.py", line 87, in start_requests
+    'http://%s:%d' % (ip_port_dict['ip'], ip_port_dict['port']),
+TypeError: %d format: a number is required, not str
+2019-09-25 18:12:33 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-09-25 18:12:33 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 9, 25, 8, 12, 33, 258022),
+ 'log_count/DEBUG': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'memusage/max': 95924224,
+ 'memusage/startup': 95924224,
+ 'start_time': datetime.datetime(2019, 9, 25, 8, 12, 33, 247918)}
+2019-09-25 18:12:33 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-09-25 18:13:33 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: tr)
+2019-09-25 18:13:33 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 18.4.0, Python 3.6.8 |Anaconda custom (64-bit)| (default, Dec 29 2018, 19:04:46) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.5.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.7.0-x86_64-i386-64bit
+2019-09-25 18:13:33 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'tr', 'LOG_FILE': 'tr.log', 'NEWSPIDER_MODULE': 'tr.spiders', 'REDIRECT_MAX_TIMES': 100, 'SPIDER_MODULES': ['tr.spiders']}
+2019-09-25 18:13:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-09-25 18:13:33 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-09-25 18:13:33 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-09-25 18:13:33 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2019-09-25 18:13:33 [scrapy.core.engine] INFO: Spider opened
+2019-09-25 18:13:33 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-09-25 18:13:33 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-09-25 18:13:35 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://zjip.patsev.com/pldb-zj/> from <GET http://zjip.patsev.com/>
+2019-09-25 18:13:36 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://zjip.patsev.com/pldb-zj/access/toLogin> from <GET http://zjip.patsev.com/pldb-zj/>
+2019-09-25 18:13:36 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://zjip.patsev.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:36 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:37 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://zjip.patsev.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:37 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:38 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:39 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:39 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:39 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:40 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:41 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:41 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:42 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:42 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:42 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:43 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:43 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:44 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:46 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:46 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:47 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:48 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:50 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:52 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:52 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:52 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:53 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:53 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:54 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:54 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:54 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:55 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:55 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:13:57 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:58 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:13:59 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:00 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:01 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:01 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:04 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:04 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:05 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:06 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:07 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:08 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:09 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:09 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:10 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:10 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:11 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:11 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:12 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:14 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET http://open.cnipr.com/pldb-zj/access/toLogin> from <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:14 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/pldb-zj/access/toLogin>
+2019-09-25 18:14:15 [scrapy.crawler] INFO: Received SIG_UNBLOCK, shutting down gracefully. Send again to force 
+2019-09-25 18:14:15 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-09-25 18:14:16 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://open.cnipr.com/pldb-zj/?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin> from <GET http://open.cnipr.com/oauth/authorize?client_id=8A3C47AC471F1D588A0F84B93E540C06&response_type=code&redirect_uri=http://open.cnipr.com/pldb-zj/access/oauthLogin>
+2019-09-25 18:14:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 36401,
+ 'downloader/request_count': 64,
+ 'downloader/request_method_count/GET': 64,
+ 'downloader/response_bytes': 20912,
+ 'downloader/response_count': 64,
+ 'downloader/response_status_count/200': 21,
+ 'downloader/response_status_count/302': 43,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2019, 9, 25, 8, 14, 16, 444921),
+ 'log_count/DEBUG': 65,
+ 'log_count/INFO': 8,
+ 'memusage/max': 95907840,
+ 'memusage/startup': 95907840,
+ 'scheduler/dequeued': 64,
+ 'scheduler/dequeued/memory': 64,
+ 'scheduler/enqueued': 65,
+ 'scheduler/enqueued/memory': 65,
+ 'start_time': datetime.datetime(2019, 9, 25, 8, 13, 33, 536046)}
+2019-09-25 18:14:16 [scrapy.core.engine] INFO: Spider closed (shutdown)

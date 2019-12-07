@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <div>
+   <script  type="text/javascript" src="/pldb-zj/static/bundle/babel/polyfill.min.js"></script>
+  <div><div>
+    <title>浙江省知识产权研究与服务中心</title>
+    <link href="/pldb-zj/static/css/reset.css"  rel="stylesheet" type="text/css" />
+    <link href="/pldb-zj/static/bundle/metronic/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/pldb-zj/static/bundle/element-ui/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/pldb-zj/static/css/font-icon-style.css" />
+    <link rel="stylesheet" type="text/css" href="/pldb-zj/static/less/hostingPlatformMain.less.css" />
+    <link rel="stylesheet" href="/pldb-zj/static/bundle/patent-ui-kit/patent-ui-kit.css">
+    <!-- <script  type="text/javascript" th:src="@{/static/bundle/less/less.min.js}"></script> -->
+    <!--link rel="stylesheet/less" type="text/css" th:href="@{/static/css/hostingPlatformMain.css}" /-->
+
+    <script  type="text/javascript" src="/pldb-zj/static/bundle/jquery/jquery.min.js"></script>
+    <script  type="text/javascript" src="/pldb-zj/static/bundle/vue/vue.min.js"></script>
+    <script type="text/javascript" src="/pldb-zj/static/bundle/vuex/vuex.min.js"></script>
+    <script  type="text/javascript" src="/pldb-zj/static/bundle/vue/vue-lazyload.js"></script>
+    <script  type="text/javascript" src="/pldb-zj/static/js/axios@0.18.0/axios.min.js"></script>
+    <!--   <script  type="text/javascript" th:src="@{/static/js/config/hp_config.js}"></script> -->
+    <script  type="text/javascript" src="/pldb-zj/static/js/common/jquery-extend.js"></script>
+    <script src="/pldb-zj/static/bundle/element-ui/js/index.js"></script>
+    <script src="/pldb-zj/static/bundle/patent-ui-kit/patent-ui-kit.umd.min.js"></script>
+    <script>
+        var ctx="/pldb-zj";
+    </script>
+    <!-- script  type="text/javascript" th:src="@{/static/js/common/vue-patent-toolkit.js}"></script -->
+    <script  type="text/javascript" src="/pldb-zj/static/js/common.js"></script>
+</div></div>
+
+</div>
+</head>
+<body>
+<div><div>
+	<script type="text/javascript">
+		(function () {
+			window.g = {
+			    username: 'spacebnbk',
+                functionModules: 'MODULE173,',
+                pageModules: 'MODULE4,MODULE7,MODULE25,MODULE26,MODULE28,MODULE29,MODULE30,MODULE39,MODULE45,MODULE48,MODULE49,MODULE56,MODULE58,MODULE59,MODULE60,MODULE61,MODULE62,MODULE63,MODULE64,MODULE73,MODULE76,MODULE77,MODULE79,MODULE81,MODULE82,MODULE84,MODULE86,MODULE87,MODULE88,MODULE89,MODULE94,MODULE110,MODULE130,MODULE131,MODULE147,MODULE151,MODULE152,MODULE162,MODULE163,'
+			};
+        })();
+	</script>
+
+	<div><div>
+	<div id="topNav">
+		<el-menu
+				:default-active="activeIndex"
+				class="el-menu-demo"
+				mode="horizontal"
+				:background-color="store.state.config.themeColor"
+				:text-color="store.state.config.nav.textColor"
+				:active-text-color="store.state.config.nav.textColor">
+			<el-menu-item index="0">
+				<div class="logo navbar-brand">
+					<!--<img th:src="@{/static/stand-alone/zhejiang/images/logo1.png}">-->
+					浙江省知识产权研究与服务中心
+				</div>
+			</el-menu-item>
+            <el-menu-item index="home">
+                <a href="/pldb-zj/route/hostingplatform/search/searchIndex">首页</a>
+            </el-menu-item>
+            <el-submenu index="search">
+                <template slot="title">检索</template>
+                <el-menu-item index="searchForm"
+                              v-if="pageModules.indexOf('MODULE84')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchForm">表格检索</a>
+                </el-menu-item>
+                <el-menu-item index="searchSxForm"
+                              v-if="pageModules.indexOf('MODULE109')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchSxForm">失效检索</a>
+                </el-menu-item>
+                <el-menu-item index="searchYxForm"
+                              v-if="pageModules.indexOf('MODULE111')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchYxForm">有效检索</a>
+                </el-menu-item>
+                <el-menu-item index="expert-search"
+                              v-if="pageModules.indexOf('MODULE103')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/expert-search">专家检索</a>
+                </el-menu-item>
+                <el-submenu index="searchReexam" v-if="pageModules.indexOf('MODULE101')!=-1 || pageModules.indexOf('MODULE102')!=-1 || pageModules.indexOf('MODULE165')!=-1">
+                    <template slot="title">判例检索</template>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE101')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/reexam-search?tabFlag=invalidAndReexam" >无效/复审检索</a></el-menu-item>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE102')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/reexam-search?tabFlag=verdict" >专利判决检索</a></el-menu-item>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE165')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/reexam-search?tabFlag=multiVerdict">裁判文书检索</a></el-menu-item>
+                </el-submenu>
+                <el-menu-item index="searchSS"
+                              v-if="pageModules.indexOf('MODULE161')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchSS">语义检索</a>
+                </el-menu-item>
+                <el-menu-item index="searchBatch"
+                              v-if="pageModules.indexOf('MODULE164')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchBatch">批量检索</a>
+                </el-menu-item>
+                <el-submenu index="searchLegalState" v-if="pageModules.indexOf('MODULE86')!=-1 || pageModules.indexOf('MODULE87')!=-1 || pageModules.indexOf('MODULE88')!=-1 || pageModules.indexOf('MODULE89')!=-1">
+                    <template slot="title">法律状态检索</template>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE86')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/prs-search?tabFlag=prsLegalState" >中国专利法律状态检索</a></el-menu-item>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE87')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/prs-search?tabFlag=prsTransfer" >专利权利转移检索</a></el-menu-item>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE88')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/prs-search?tabFlag=prsPreservation" >专利质押保全检索</a></el-menu-item>
+                    <el-menu-item v-if="pageModules.indexOf('MODULE89')!=-1"><a href="/pldb-zj/access/hostingplatform/search/patent/route/prs-search?tabFlag=prsExploitation">专利实施许可检索</a></el-menu-item>
+                </el-submenu>
+            </el-submenu>
+            <el-menu-item index="ipc-navigation"
+                          v-if="pageModules.indexOf('MODULE130')!=-1">
+                <a href="/pldb-zj/access/hostingplatform/nav/route/showNav?industryFlag=0">分类导航</a>
+            </el-menu-item>
+            <el-menu-item index="industry-navigation"
+                          v-if="pageModules.indexOf('MODULE131')!=-1">
+                <a href="/pldb-zj/access/hostingplatform/nav/route/showNav?industryFlag=1">专利数据库</a>
+            </el-menu-item>
+            <el-menu-item index="enterprise-navigation"
+                          v-if="pageModules.indexOf('MODULE191')!=-1">
+                <a href="/pldb-zj/access/hostingplatform/nav/route/showNav?industryFlag=1&amp;parameter=300">企业数据库</a>
+            </el-menu-item>
+
+            <el-menu-item index="patent-manager"
+                          v-if="pageModules.indexOf('MODULE105')!=-1">
+                <a href="/pldb-zj/route/hostingplatform/my-patent/index">我的专利管理</a>
+            </el-menu-item>
+            <el-menu-item index="industry-mgt"
+                          v-if="pageModules.indexOf('MODULE129')!=-1">
+                <a href="/pldb-zj/route/hostingplatform/industry-mgt-nav/industry-mgt">专利数据库管理</a>
+            </el-menu-item>
+            <el-submenu index="7"
+                        v-if="pageModules.indexOf('MODULE106')!=-1 || pageModules.indexOf('MODULE107')!=-1 || pageModules.indexOf('MODULE108')!=-1 || pageModules.indexOf('MODULE118')!=-1 || pageModules.indexOf('MODULE174')!=-1">
+                <template slot="title">系统管理</template>
+                <el-submenu index="user-manage"
+                            v-if="pageModules.indexOf('MODULE106')!=-1 || pageModules.indexOf('MODULE108')!=-1 || pageModules.indexOf('MODULE174')!=-1 || pageModules.indexOf('MODULE172')!=-1">
+                    <template slot="title">用户相关管理</template>
+                    <el-menu-item index="user-form"
+                                  v-if="pageModules.indexOf('MODULE106')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/user-form" target="_blank">用户与用户组</a>
+                    </el-menu-item>
+                    <el-menu-item index="permission-form"
+                                  v-if="pageModules.indexOf('MODULE108')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/permission-form" target="_blank">权限管理</a>
+                    </el-menu-item>
+                    <el-menu-item index="promote-authority"
+                                  v-if="pageModules.indexOf('MODULE174')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/promote-authority" target="_blank">提升用户权限</a>
+                    </el-menu-item>
+                    <el-menu-item index="register-setting"
+                                  v-if="pageModules.indexOf('MODULE172')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/system-setting?settingTab=register" target="_blank">注册设置</a>
+                    </el-menu-item>
+                </el-submenu>
+                <el-submenu index="visit-manage"
+                            v-if="pageModules.indexOf('MODULE153')!=-1 || pageModules.indexOf('MODULE171')!=-1">
+                    <template slot="title">访问管理</template>
+                    <el-menu-item index="ipManage"
+                                  v-if="pageModules.indexOf('MODULE153')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/ipManage" target="_blank">IP限制管理</a>
+                    </el-menu-item>
+                    <el-menu-item index="afr"
+                                  v-if="pageModules.indexOf('MODULE171')!=-1">
+                        <a href="/pldb-zj/route/hostingplatform/manage/afr" target="_blank">URL访问频率限制</a>
+                    </el-menu-item>
+                </el-submenu>
+                <el-menu-item index="audit"
+                              v-if="pageModules.indexOf('MODULE189')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/manage/audit" target="_blank">审计管理</a>
+                </el-menu-item>
+                <el-menu-item index="task"
+                              v-if="pageModules.indexOf('MODULE118')!=-1">
+                    <a href="/pldb-zj/route/hostingplatform/manage/task" target="_blank">任务管理</a>
+                </el-menu-item>
+			</el-submenu>
+			<el-menu-item index="afr">
+				<a href="http://zjip.patsev.com/wg" target="_blank">外观检索平台</a>
+			</el-menu-item>
+			<el-menu-item index="incoPat">
+				<a href="https://www.incopat.com/" target="_blank">incoPat</a>
+			</el-menu-item>
+			<el-menu-item index="zhy">
+				<a href=" https://analytics.zhihuiya.com/" target="_blank">智慧芽</a>
+			</el-menu-item>
+			<el-menu-item index="bdfb">
+				<a href="http://www.pkulaw.com/" target="_blank">北大法宝</a>
+			</el-menu-item>
+			<el-menu-item index="di">
+				<a href="http://apps.webofknowledge.com" target="_blank">Derwent Innovation</a>
+			</el-menu-item>
+            <el-submenu index="9" class="pull-right">
+                <span slot="title">{{username}}</span>
+                <el-menu-item v-if="pageModules.indexOf('MODULE147')!=-1" index="user-info">
+                    <a href="/pldb-zj/route/hostingplatform/user/user-info">个人信息</a>
+                </el-menu-item>
+                <el-menu-item v-if="pageModules.indexOf('MODULE151')!=-1" index="system-update">
+                    <a href="/pldb-zj/route/hostingplatform/user/system-log">系统更新日志</a>
+                </el-menu-item>
+                <el-menu-item v-if="pageModules.indexOf('MODULE111')!=-1" index="help-info">
+                    <a href="/pldb-zj/route/hostingplatform/search/searchHelp">检索帮助</a>
+                </el-menu-item>
+                <el-menu-item onclick="loginOut()" index="9-2">退出</el-menu-item>
+            </el-submenu>
+            <el-submenu index="10" class="pull-right">
+                <template slot="title">
+                    <span @mouseover="getNotificationList">
+                        <el-badge :is-dot="notificationList.length > 0" class="notification-bar">
+                            <i class="fa fa-bell-o"></i>
+                        </el-badge>
+                        <span>我的消息</span>
+                    </span>
+                </template>
+                <ul class="my-notification">
+                    <el-alert v-if="notificationList.length == 0" title="暂无消息" type="warning"show-icon :closable="false"></el-alert>
+                    <li v-for="notification in notificationList">
+                        <a v-if="notification.notificationType === '提升用户权限'" href="/pldb-zj/route/hostingplatform/user/user-info" style="color: #333">{{notification.message}}</a>
+                        <a v-if="notification.notificationType === '申请提升用户权限'" href="/pldb-zj/route/hostingplatform/manage/promote-authority" style="color: #333">{{notification.message}}</a>
+                        <el-button type="text" @click="setIsReadFlag(notification.id)">
+                            <i class="fa fa-check"></i>
+                        </el-button>
+                    </li>
+                </ul>
+            </el-submenu>
+		</el-menu>
+	</div>
+	<script >
+        var nav = new Vue({
+            el:'#topNav',
+            // store : store,
+            data:{
+                activeIndex: 'home',
+                cf : window.config,
+                pageModules:'',
+                username: '',
+                notificationList:[]
+            },
+            mounted: function(){
+				this.getPageModule();
+                this.pageModules = g.pageModules;
+                this.functionModules = g.functionModules;
+                this.getUserInfo();
+            },
+            methods: {
+                //获取我的消息
+                getNotificationList: function() {
+                    var self = this;
+                    self.notificationList = [];
+                    axios.get(getBasePath() + '/system/hostingplatform/notification/json/get-notifications?timestamp=' + new Date().getTime()).then(function (response) {
+                        if (response['status'] === 200) {
+                            self.notificationList = [];
+                            var data = response['data'];
+                            if (data['status'] === 0) {
+                                data['list'].forEach(function (element) {
+                                    self.notificationList.push(element);
+                                });
+                            }
+                        }else {
+                            console.error(response);
+                        }
+                    }).catch(function (reason) {
+                        console.error(reason)
+                    });
+                },
+                //设置为已读消息
+                setIsReadFlag:function(id){
+                    var self = this;
+                    axios.get(getBasePath() + '/system/hostingplatform/notification/json/update-is-read',{
+                        params: {
+                            id: id
+                        }
+                    }).then(function (response){
+                        if (response['status'] === 200) {
+                            var data = response['data'];
+                            if (data['status'] === 0) {
+                                for(var i = 0; i < self.notificationList.length; i++){
+                                    if (self.notificationList[i].id == id){
+                                        self.notificationList.splice(i, 1);
+                                    }
+                                }
+                            } else {
+                                notificationAlert(self, data['message'], 'warning');
+                            }
+                        } else {
+                            console.error(response);
+                        }
+                    }).catch(function (reason) {
+                        console.error(reason)
+                    });
+                },
+                getPageModule:function(){
+                    var self = this;
+                    console.log('getPageModule', getBasePath());
+                    $.ajax({
+                        url:getBasePath() + "/system/manage/json/getAllPage",
+                        type:'post',
+                        success : function(data){
+                            self.pageModules = data;
+                        }
+                    });
+                    // console.log("page",self.pageModules);
+                },
+                getRoute:function(){
+                    var obj = window.location;
+                    var length = obj.href.split("/").length;
+                    var route = obj.href.split("/")[length-1];
+                    return route;
+                },
+                //页面跳转
+                toPage:function(url){
+                    var basePath = getBasePath();
+                    window.location.href = basePath + url;
+                },
+                getUserInfo : function(){
+                    var self = this;
+                    axios.get(
+                        getBasePath() + "/access/login/json/query/getUserInfo"
+                    ).then(function (response) {
+                        // console.log('topNav->methods->getUserInfo:response', response);
+                        if (response['status'] === 200) {
+                            var _data = response['data'];
+                            self.username = _data['username'];
+                        } else {
+                            console.error(response);
+                        }
+                    }).catch(function (reason) { console.error(reason); });
+                },
+
+                handleSelect: function (key, keyPath) {
+                    // console.log(key, keyPath);
+                }
+            }
+        });
+	</script>
+</div></div>
+
+</div></div>
+
+<div id="searchHome"></div>
+<script type="text/x-template" id="searchHomeTemplate">
+    <div>
+        <div class="bg-container">
+        </div>
+        <div id="searchIndex" class="clearfix">
+            <div class="power-search">
+                <img width="350px" src="/pldb-zj/static/stand-alone/zhejiang/images/logo3.png" alt="浙江省知识产权服务中心专利数据库">
+                    <div class="psbox clearfix">
+                        <el-input placeholder="请输入申请号、公开号、名称、摘要、主权项、发明人等关键词" class="input-with-select" v-model="keyWords" @keyup.enter.native="search">
+                            <el-button slot="append" type="primary" icon="el-icon-search" @click="search"></el-button>
+                        </el-input>
+                    </div>
+                    <div class="ps-radio">
+                        <el-radio v-model="searchDB"  label="CN">中国专利(中文)</el-radio>
+                        <el-radio v-model="searchDB" label="ALL">世界专利</el-radio>
+                    </div>
+            </div>
+            <form id="searchForm" method="post" action="/pldb-zj/access/hostingplatform/search/patent/route/patent-overview">
+                <input type="hidden" name="from" value="1">
+                <input type="hidden" name="size" value="10">
+                <input type="hidden" name="dbs">
+                <input type="hidden" name="exp">
+            </form>
+            <input type="hidden" id="functionModules" value="MODULE173," v-model='functionModules'>
+        </div>
+        <div class="index-footer">
+        </div>
+    </div>
+</script>
+<script src="/pldb-zj/static/js/hostingPlatform/search/searchIndex.js"></script>
+</body>
+</html>
