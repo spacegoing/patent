@@ -26,10 +26,10 @@ headers = {
         'zh-CN,zh;q=0.9',
     'Connection':
         'keep-alive',
-    'Host':
-        'zjip.patsev.com',
-    'Referer':
-        'http://zjip.patsev.com/pldb-zj/',
+    # 'Host':
+    #     'zjip.patsev.com',
+    # 'Referer':
+    #     'http://zjip.patsev.com/pldb-zj/',
     'Upgrade-Insecure-Requests':
         '1',
     'User-Agent':
@@ -39,9 +39,17 @@ headers = {
 }
 
 ip_port_dict = random.choice(list(proxy_col.find()))
-proxy_dict = {
-    'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
+# proxy_dict = {
+#     'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
+# }
+proxyMeta = "socks5://%(host)s:%(port)s" % {
+    "host": ip_port_dict['ip'],
+    "port": ip_port_dict['port'],
 }
+proxy_dict = {
+    'http': proxyMeta
+}
+print(proxy_dict)
 
 res = requests.get(url, proxies=proxy_dict, headers=headers)
 # res = requests.get(url, headers=headers)

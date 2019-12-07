@@ -110,5 +110,31 @@ url = res.headers['Location']
 name = '3'
 # res = make_query(url, name, red=False, proxy=False)
 cnipr_res = make_query(url, name, red=False)
+print(len(cnipr_res.text))
 
 logined_url = login(cnipr_res)
+
+ip_port_dict = random.choice(list(proxy_col.find()))
+proxy_dict = {
+    'http': 'http://%s:%s' % (ip_port_dict['ip'], ip_port_dict['port'])
+}
+logined_res = sess.get(logined_url, proxies=proxy_dict)
+with open('login' + '.html', 'w') as f:
+  f.writelines(logined_res.text)
+
+no_per_page = 30
+pat_form_data = {
+    'dbs': 'FMZL,SYXX,WGZL,FMSQ',
+    'displayCols': '',
+    'exp': "(申请日= (1990 to 2019)) AND (申请人类型=('工矿企业'))",
+    'from': '1',
+    'isSimilar': 'false',
+    'option': '',
+    'order': '',
+    'size': str(no_per_page)
+}
+pat_query_url='http://zjip.patsev.com//pldb-zj/access/hostingplatform/search/patent/route/patent-overview'
+pat_query_res = sess.post(pat_query_url, proxies=proxy_dict, data=pat_form_data)
+
+with open('pat' + '.html', 'w') as f:
+  f.writelines(pat_query_res.text)
