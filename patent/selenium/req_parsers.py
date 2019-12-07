@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+import time
 import requests
+from requests_futures.sessions import FuturesSession
 from shadow_useragent import ShadowUserAgent as ua
 # selenium
 from selenium import webdriver
@@ -69,12 +71,16 @@ def create_form_data(page_no):
     task_form_dict[k] = (None, v)
   return task_form_dict
 
+
 # https queries
 def get_total_items_pages(sess):
+  # query patent list page 1, only to get total pages
   form_data = create_form_data(1)
   header = get_random_header()
-  res = sess.post(query_patent_list_url, headers=header, files=form_data)
+  future = sess.post(query_patent_list_url, headers=header, files=form_data)
+  res = future.result()
   total_items = res.json()['total']
+  # from searchForm page (patent list page) js script
   total_pages = total_items // item_per_page
   if total_items % item_per_page:
     total_pages += 1
@@ -83,11 +89,26 @@ def get_total_items_pages(sess):
 
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome('./chromedriver', options=options)
-sess = requests.Session()
+sess = FuturesSession()
 
 login(driver)
 set_sess_cookie(driver, sess)
 total_items, total_pages = get_total_items_pages(sess)
+print('total pages: ', total_pages)
 
-# with open('pat_list.html', 'w') as f:
-#   f.write(res.text)
+pages_per_min = 15
+total_page_num_list = list(range(1, total_pages + 1))
+
+# main loop
+for i in total_page_num_list[::pages_per_min]:
+  # scrape pages_per_min pages per minute
+  page_num_list = total_page_num_list[i:i + pages_per_min]
+
+  # start scraping
+  start_time = time.time()
+  for num in page_num_list:
+    break
+
+  # wait at least 1 minute
+  if time.time() - start_time < 60:
+    time.sleep(time.time() - start_time)
